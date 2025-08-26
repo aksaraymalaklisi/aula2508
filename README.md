@@ -27,10 +27,10 @@ Primeiro, é importado `BaseSettings` e `SettingsConfigDict` do `pydantic_settin
 Agora, lembre-se da **HERDANÇA**. `Settings` herda de `BaseSettings` para obter essas funcionalidades adicionais, pois sem elas, `Settings` nem sequer lê o arquivo `.env`.
 O nome `Settings` simplesmente foi escolhido por questão de organização, mas você poderia chamar ela de qualquer coisa (**não faça isso**) já que essa classe herda de `BaseSettings`. Isto é: **ABSTRAÇÃO**
 
-Continuando, `BaseSettings` é capaz de ler a `.env` automaticamente, mas ele não **instancia os dados da `.env` sozinho***. 
+Continuando, `BaseSettings` é capaz de ler a `.env` automaticamente, mas ele não **instancia os dados da `.env` sozinho***.  
 É por isso que estamos especificando o que o `BaseSettings` deve ler e usar da .env (**comentário 2**).
 
-Dito isso, **também é possível criar "valores padrões"** caso não eles não sejam especificados na `.env`. 
+Dito isso, **também é possível criar "valores padrões"** caso não eles não sejam especificados na `.env`.  
 Note que, no **comentário 3**, foi especificado o valor `"aula2508"`. Se a chave `DB_NAME` não for encontrada na `.env`, será utilizado, por padrão, o valor `"aula2508"` para a chave `DB_NAME`.
 
 > **Observações**  
