@@ -1,7 +1,7 @@
 from beanie import Document
 from pydantic import BaseModel, Field
-from typing import Optional
 from datetime import datetime
+from typing import List
 
 # Modelo para entrada de dados
 class ProductIn(BaseModel):
@@ -11,7 +11,7 @@ class ProductIn(BaseModel):
 
 # Modelo para documento MongoDB
 class Product(Document, ProductIn):
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=datetime.now(datetime.timezone.utc))
 
 class Settings:
     name = "products" # nome da coleção
