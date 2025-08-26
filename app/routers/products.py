@@ -5,7 +5,6 @@ from ..models import Product, ProductIn
 router = APIRouter(prefix="/products", tags=["products"])
 
 @router.post("/", response_model=Product)
-
 async def create_product(data: ProductIn):
     doc = Product(**data.dict())
     await doc.insert()
