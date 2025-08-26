@@ -1,6 +1,6 @@
 # Repositório da aula do dia 25/08/25  
 
-Esse repositório, por questões de segurança, não possui o arquivo `.env`, que é ignorado pelo Git pelo `.gitignore`.  
+Esse repositório, por questões de segurança, não possui o arquivo `.env`, que é ignorado pelo Git usando o arquivo `.gitignore`.  
 
 Abaixo, um exemplo do arquivo `.env`, como visto nos slides da aula:  
 
@@ -49,13 +49,13 @@ Esse é simples: já sabemos como sua estrutura de dados funciona, então só pr
 > **Observações**  
 > A variável `SettingsConfigDict()` foi atribuída (`model_config`) pode **ter o nome que você quiser colocar**, mas é importante que **mantenha consistência e coerência** no código. Isto é, não chame a variável que armazena informações que o Pydantic usa para encontrar a `.env` com nomes ilógicos, como, por exemplo, o nome de um navio baleeiro, ou o nome do indígena que é amigo de um balaieiro.  
 >
-> **Sobre o `env_prefix`**: Digamos, por exemplo, que existem um conjunto de variáveis de um serviço X do backend e de outro serviço Y. Se Pydantic está sendo utilizado, você poderia ler apenas as chaves que possuem o prefixo "Y_" na chave, como "Y_DB_NAME", enquanto, por exemplo, o backend X só iria ler de chaves com o prefixo "X_".  
+> **Sobre o `env_prefix`**: Digamos, por exemplo, que exista um conjunto de variáveis de um serviço X do backend e de outro serviço Y. Se Pydantic está sendo utilizado, você poderia ler apenas as chaves que possuem o prefixo "Y_" na chave, como "Y_DB_NAME", enquanto o serviço X poderia ler apenas de chaves com o prefixo "X_".  
 >
 > ***Sobre o `extra`**: Lembra que falamos sobre como precisamos definir os valores e chaves que estamos procurando na `.env` pelo modelo do BaseSettings? Então, uma das opções do `extra` é o `"allow"`. Ele permite usar qualquer chave que não foi definida no BaseSettings ser carregada para o Settings. Dito isso, **é recomendado usar o `"ignore"` para checar a tipagem e validar os valores**, pois facilita na manutenção do código quando futuros problemas aparecerem.  
 >
 > Por fim, e não menos importante: as opções `env_prefix` e `extra` possuem os valores especificados no código **por padrão**, isto é, se não forem especificados, eles terão os mesmos valores que vimos no código. A única opção que realmente muda algo é o `env_file`, já que Pydantic não procura por um arquivo `.env` por padrão.  
 
-### (!coisas que tenho que ver melhor)
+### Referências
 
 - [Pydantic - Dotenv](https://docs.pydantic.dev/latest/concepts/pydantic_settings/#dotenv-env-support)
 - [Pydantic - Usage](https://docs.pydantic.dev/latest/concepts/pydantic_settings/#usage)
